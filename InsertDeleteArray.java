@@ -33,13 +33,17 @@ public class InsertDeleteArray {
 		for(int oi = 0, ci = 0; oi < data.length; oi++ )
 	    {
 			
-	        newData2[ ci++ ] = data[ oi ];
-	        
-			if(oi == indexToInsert){
-	        	
-	        newData2[ci] = newValue ;}
-	        
-	         	        
+			 if (oi < indexToInsert) {
+	                newData2[ci++] = data[oi];
+ 	            }
+	            if (oi == indexToInsert) {
+	                newData2[ci++] = newValue;
+	                newData2[ci++] = data[oi];
+	            }
+	            if (oi > indexToInsert) {
+	                newData2[ci++] = data[oi];
+	            }
+	            
 	    }
 		
 		data = newData2;
